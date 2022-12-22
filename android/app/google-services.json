@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "216558571275",
+    "project_id": "rizziconsultingrms",
+    "storage_bucket": "rizziconsultingrms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216558571275:android:747624b7cd9bc9469d9c0e",
+        "android_client_info": {
+          "package_name": "com.rizziconsultong.rms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216558571275-i9ph48jo59kvoghgeuivrdgi6p9p4tpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLAwpRQA5nlon5qOa_I1W2iv__T1K3oS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216558571275-i9ph48jo59kvoghgeuivrdgi6p9p4tpi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "216558571275-klr13e8oia2p31fhv4rmnp8kdqgsvatu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rizziconsultong.rms"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
