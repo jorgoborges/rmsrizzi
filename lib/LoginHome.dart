@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:rms/SamplePagePortal.dart';
+import 'package:rms/SamplePage.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -19,7 +19,7 @@ class LoginHome extends StatelessWidget {
           email: _controladorEmail.text, password: _controladorSenha.text);
 
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => SamplePagePortal()),
+        MaterialPageRoute(builder: (_) => SamplePage()),
       );
     } catch (FirebaseAuthException) {
       const snackBar = SnackBar(
@@ -38,6 +38,8 @@ class LoginHome extends StatelessWidget {
         appBar: AppBar(
           leadingWidth: 150,
           leading: Container(
+            width: double.infinity,
+            height: double.infinity,
             child: Row(
               children: <Widget>[
                 Container(
@@ -161,20 +163,20 @@ class LoginHome extends StatelessWidget {
                           ),
                           onPressed: () => {newlogin(context)}),
                     ),
-              SizedBox(
-                height: 10,
-              ),
                     SizedBox(
-                      width: 400,
+                      height: 10,
+                    ),
+                    SizedBox(
+                        width: 400,
                         child: Container(
-                      alignment: Alignment.center,
-                      child: AutoSizeText(
-                        'Rizzi Consulting Ⓡ 2000|2023 Todos os Direitos Reservados',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 7),
-                        maxLines: 2,
-                      ),
-                    )),
+                          alignment: Alignment.center,
+                          child: AutoSizeText(
+                            'Rizzi Consulting Ⓡ 2000|2023 Todos os Direitos Reservados',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 7),
+                            maxLines: 2,
+                          ),
+                        )),
                   ],
                 ),
               ),

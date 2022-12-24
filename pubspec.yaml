@@ -29,19 +29,25 @@ environment:
 dependencies:
   firebase_auth: ^4.2.1
   firebase_core: ^2.4.0
-  firebase_auth_web: ^5.2.1
+  firebase_auth_web: ^5.2.3
   firebase_auth_oauth_platform_interface: ^1.0.3
   auto_size_text: ^3.0.0
-  simple_grid: ^0.1.1
-  responsive_grid: ^2.1.0
   flutter_admin_scaffold: ^1.1.2
   passwordfield: ^0.1.0
   http: ^0.13.5
   flutterfire: ^0.0.1
   firebase_dart: ^1.0.11
-  cloud_firestore: ^4.2.0
-  flutter_native_splash: ^2.2.16
-  flutter_launcher_icons: ^0.11.0
+  cloud_firestore: ^4.3.0
+  fwfh_webview: ^0.6.2+5
+
+
+
+
+
+
+
+
+
 
 
 

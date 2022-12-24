@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rms/LoginHome.dart';
+import 'package:rms/HomePage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:rms/LoginHome.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
