@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rms/SamplePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:fwfh_webview/fwfh_webview.dart';
+import 'package:rms/SamplePage.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class oneLevelItem2Page extends StatelessWidget {
+  const oneLevelItem2Page({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
         MediaQuery.of(context).padding.top;
 
     return MyScaffold(
-      route: '/homePage',
+      route: '/oneLevelItem1',
       body: Container(
         width: size.width,
         height: size.height,
@@ -30,10 +30,13 @@ class HomePage extends StatelessWidget {
               color: Colors.white,
               padding: EdgeInsets.only(top: 25),
               child: HtmlWidget(
-                '<iframe src="https://rizziconsulting.com.br/"></iframe>',
+                '<iframe title="Torre_de_Controle_Cequip" width="1140" height="541.25" '
+                'src="https://app.powerbi.com/reportEmbed?reportId=fe6de127-f910-4618-a02b-'
+                'fbd48ed4d3b1&autoAuth=true&ctid=bae03bf5-f801-4f8b-adba-c177d66c8180" '
+                'frameborder="0" allowFullScreen></iframe>',
                 factoryBuilder: () => MyWidgetFactory(),
               ),
-            )
+            ),
           ],
         ),
       ),

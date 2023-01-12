@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rms/HomePage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:rms/LoginHome.dart';
 import 'firebase_options.dart';
+
+
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +22,7 @@ class Home extends StatelessWidget {
     return MaterialApp(
       color: const Color(0xff041e42),
       debugShowCheckedModeBanner: false,
+      title: 'Login',
       home: LoginHome(),
     );
   }

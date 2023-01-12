@@ -1,22 +1,26 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
-import 'dart:html' as html;
 import 'package:rms/HomePage.dart';
-import 'package:rms/LoginHome.dart';
-import 'package:rms/oneLevelItem1Page.dart';
+import 'loginHome.dart';
+import 'oneLevelItem1Page.dart';
+import 'oneLevelItem2Page.dart';
 
 void main() {
-  runApp(SamplePage());
+  runApp(const SamplePage());
 }
 
 class SamplePage extends StatefulWidget {
+  const SamplePage({super.key});
+
   @override
-  _SamplePageState createState() => _SamplePageState();
+  _SamplePageState createState() {
+    return _SamplePageState();
+  }
 }
 
 class _SamplePageState extends State<SamplePage> {
-  static MaterialColor themeBlack = MaterialColor(
+  static MaterialColor themeBlack = const MaterialColor(
     _themeBlackPrimaryValue,
     <int, Color>{
       50: Color(_themeBlackPrimaryValue),
@@ -31,26 +35,14 @@ class _SamplePageState extends State<SamplePage> {
       900: Color(_themeBlackPrimaryValue),
     },
   );
-  static const int _themeBlackPrimaryValue = 0xFF222222;
-  static const Color themeTextPrimary = Color(0xFF9D9D9D);
+  static const int _themeBlackPrimaryValue = 0xff041e42;
+  static const Color themeTextPrimary = Color(0xff041e42);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: themeBlack,
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: themeBlack,
-            ),
-        primaryTextTheme: Theme.of(context).textTheme.apply(
-              bodyColor: themeTextPrimary,
-            ),
-        primaryIconTheme: const IconThemeData(
-          color: themeTextPrimary,
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      title: 'RMS',
       onGenerateRoute: (settings) {
         final page = _getPageWidget(settings);
         if (page != null) {
@@ -77,9 +69,11 @@ class _SamplePageState extends State<SamplePage> {
     switch (uri.path) {
       case '/':
         return HomePage();
-
-      case '/oneLevelItem1':
+      case '/secondLevelItem1':
         return oneLevelItem1Page();
+      case '/oneLevelItem2Page':
+        return oneLevelItem2Page();
+      case '/oneLevelItem2Page':
     }
     return null;
   }
@@ -97,33 +91,30 @@ class MyScaffold extends StatelessWidget {
 
   final List<AdminMenuItem> _sideBarItems = const [
     AdminMenuItem(
-      title: '*Rizzi Control Tower – Contratos & Reparos',
+      title: 'Rizzi Consulting',
+      route: '/',
+      //icon: Icons.home,
+    ),
+    AdminMenuItem(
+      title: 'Rizzi Control Tower – Contratos & Reparos',
+      // icon: Icons.cell_tower,
       children: [
         AdminMenuItem(
-          title: '- Contrato de Manutenção',
-          route: '/oneLevelItem1',
-          children: [],
+          title: 'Contrato de Manutenção',
+          route: '/secondLevelItem1',
         ),
         AdminMenuItem(
-          title: '- KPI´s – Gestor de Frotas',
-          route: '/oneLevelItem2',
-          children: [],
+          title: 'KPI´s – Gestor de Frotas',
+          route: '/oneLevelItem2Page',
         ),
       ],
-    ),
-    AdminMenuItem(
-      title: '*Gestão de Ativos',
-      children: [],
-    ),
-    AdminMenuItem(
-      title: '*Gestão Estratégica ',
-      children: [],
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Container(
           alignment: Alignment.bottomRight,
@@ -146,56 +137,57 @@ class MyScaffold extends StatelessWidget {
         backgroundColor: const Color(0xff041e42),
       ),
       sideBar: SideBar(
+
         backgroundColor: const Color(0xFFEEEEEE),
         activeBackgroundColor: Colors.black26,
         borderColor: const Color(0xFFE7E7E7),
         iconColor: Colors.black87,
-        activeIconColor: Colors.blue,
+        activeIconColor: Colors.black87,
         textStyle: const TextStyle(
           color: Color(0xFF337ab7),
+          wordSpacing: 1,
           fontSize: 12,
+
         ),
         activeTextStyle: const TextStyle(
           color: Colors.white,
-          fontSize: 15,
+          fontSize: 12,
         ),
         items: _sideBarItems,
         selectedRoute: route,
         onSelected: (item) {
-          print(
-              'sideBar: onTap(): title = ${item.title}, route = ${item.route}');
           if (item.route != null && item.route != route) {
             Navigator.of(context).pushNamed(item.route!);
           }
         },
-        // header: Container(
-        // height: 50,
-        //width: double.infinity,
-        //   color: const Color(0xffffffff),
-        //   child: const Center(
-        //      child: Image(
-        //      image: AssetImage("assets/images/image1.png"),
-        //        fit: BoxFit.fill,
-        //       height: 100,
-        //     width: 100,
-        //    )
-        //  ),
-        //   ),
+        header: Container(
+          height: 50,
+          //width: double.infinity,
+          color: const Color(0xff2e7d32),
+          child: const Center(
+            child: Text(
+              'header',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
         footer: Container(
           height: 50,
-          width: double.infinity,
-          color: const Color(0xffffffff),
+          // width: double.infinity,
+          color: const Color(0xff2e7d32),
           child: const Center(
-            child: AutoSizeText(
-              'Rizzi Consulting Ⓡ 2000|2023 Todos os Direitos Reservados',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 7),
-              maxLines: 3,
+            child: Text(
+              'footer',
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: body,
       ),
     );

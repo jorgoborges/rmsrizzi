@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:rms/SamplePage.dart';
+
+
+
+
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -37,14 +40,14 @@ class LoginHome extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leadingWidth: 150,
-          leading: Container(
+          leading: SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: Row(
               children: <Widget>[
                 Container(
                   alignment: Alignment.bottomLeft,
-                  child: Image(
+                  child: const Image(
                     image: AssetImage("assets/images/image1.png"),
                     fit: BoxFit.fill,
                     height: 100,
@@ -57,10 +60,10 @@ class LoginHome extends StatelessWidget {
           backgroundColor: const Color(0xff041e42),
           title: Container(
             alignment: Alignment.bottomRight,
-            child: AutoSizeText(
+            child: const AutoSizeText(
               'RMS-RIZZI MANAGEMENT SYSTEM',
-              style: TextStyle(fontSize: 12),
-              maxFontSize: 12,
+              style: TextStyle(fontSize: 14.0),
+              maxFontSize: 14.0,
               maxLines: 1,
             ),
           ),
@@ -68,14 +71,14 @@ class LoginHome extends StatelessWidget {
         body: Stack(children: [
           Container(
             alignment: Alignment.topCenter,
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               top: 3,
             ),
-            child: Image(
+            child: const Image(
               image: AssetImage("assets/images/image2.png"),
               fit: BoxFit.contain,
-              height: 390,
-              width: 1000,
+              height: 200,
+              width: 800,
             ),
           ),
           Padding(
@@ -86,17 +89,17 @@ class LoginHome extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 400),
+                      padding: const EdgeInsets.only(top: 200),
                       child: Column(
                         children: <Widget>[
                           TextFormField(
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                             controller: _controladorEmail,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily: "WorkSansLight",
-                                  fontSize: 17.0),
+                                  fontSize: 14.0),
                               filled: true,
                               fillColor: Colors.white24,
                               hintText: "Email",
@@ -105,9 +108,9 @@ class LoginHome extends StatelessWidget {
                                       BorderRadius.all(Radius.circular(90.0)),
                                   borderSide: BorderSide(
                                       color: Colors.white24, width: 0.9)),
-                              prefixIcon: const Icon(
+                              prefixIcon: Icon(
                                 Icons.email,
-                                color: const Color(0xff041e42),
+                                color: Color(0xff041e42),
                               ),
                             ),
                             keyboardType: TextInputType.emailAddress,
@@ -115,18 +118,18 @@ class LoginHome extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 40),
                     ),
                     TextFormField(
                       obscureText: isHiddenPassword,
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                       controller: _controladorSenha,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintStyle: TextStyle(
                             color: Colors.black,
                             fontFamily: "WorkSansLight",
-                            fontSize: 17.0),
+                            fontSize: 14.0),
                         filled: true,
                         fillColor: Colors.white24,
                         hintText: "Senha",
@@ -135,45 +138,45 @@ class LoginHome extends StatelessWidget {
                                 BorderRadius.all(Radius.circular(90.0)),
                             borderSide:
                                 BorderSide(color: Colors.white24, width: 0.9)),
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           Icons.lock_outline,
-                          color: const Color(0xff041e42),
+                          color: Color(0xff041e42),
                         ),
                       ),
                       keyboardType: TextInputType.visiblePassword,
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 5, top: 15),
                     ),
                     SizedBox(
-                      height: 25,
-                      width: 100,
+                      height: 40,
+                      width: 120,
                       child: ElevatedButton(
-                          child: AutoSizeText('Entrar',
-                              textAlign: TextAlign.center,
-                              maxFontSize: 12,
-                              maxLines: 2,
-                              style: TextStyle(fontSize: 10)),
                           style: ElevatedButton.styleFrom(
-                            primary: const Color(0xff041e42),
+                            backgroundColor: const Color(0xff041e42),
                             elevation: 15,
-                            shape: BeveledRectangleBorder(
+                            shape: const BeveledRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3))),
                           ),
-                          onPressed: () => {newlogin(context)}),
+                          onPressed: () => {newlogin(context)},
+                          child: const AutoSizeText('Entrar',
+                              textAlign: TextAlign.center,
+                              maxFontSize: 14.0,
+                              maxLines: 2,
+                              style: TextStyle(fontSize: 14.0))),
                     ),
-                    SizedBox(
-                      height: 10,
+                    const SizedBox(
+                      height: 40,
                     ),
                     SizedBox(
                         width: 400,
                         child: Container(
                           alignment: Alignment.center,
-                          child: AutoSizeText(
+                          child: const AutoSizeText(
                             'Rizzi Consulting Ⓡ 2000|2023 Todos os Direitos Reservados',
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 7),
+                            style: TextStyle(fontSize: 14.0),
                             maxLines: 2,
                           ),
                         )),
